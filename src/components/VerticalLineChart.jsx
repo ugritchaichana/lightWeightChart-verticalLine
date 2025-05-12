@@ -1,10 +1,14 @@
+import { useEffect, useRef } from 'react';
+import { createChart } from 'lightweight-charts';
+
+
 // ================================================
 // VerticalLineChart Component - สำหรับแสดงกราฟเส้นพร้อมเส้นแนวตั้งที่จุดสำคัญ
 // ================================================
 // Dependencies:
 // 1. lightweight-charts: version 4.1.0
 //    npm install lightweight-charts@4.1.0
-// 
+//
 // 2. React: version 18+
 //    npm install react react-dom
 //
@@ -74,8 +78,7 @@
 //   disablePointHover={false}  // ปิดการแสดงจุดเมื่อชี้เมาส์ (optional, default: false)
 // />
 
-import { useEffect, useRef } from 'react';
-import { createChart } from 'lightweight-charts';
+
 
 export const VerticalLineChart = ({
   data,
@@ -288,7 +291,7 @@ export const VerticalLineChart = ({
         } else {
           // ถ้า time ไม่เป็นตัวเลข (เช่น "2024-01-01") ให้ใช้ index ตรงกลางข้อมูล
           timeIndex = Math.floor(processedData.length / 2);
-          // console.warn("ไม่สามารถแปลงค่า time '" + verticalLineTime + "' เป็น index ได้ ใช้ค่ากลางแทน");
+          console.warn("ไม่สามารถแปลงค่า time '" + verticalLineTime + "' เป็น index ได้ ใช้ค่ากลางแทน");
         }
         
         // ใช้ค่า time ที่แปลงจาก index แล้ว
