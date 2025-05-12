@@ -150,8 +150,13 @@ export const VerticalLineChart = ({
       // แสดง log เพื่อแจ้งเตือน
       // console.info("ข้อมูลไม่มี time field - ใช้วันที่แทน โดยเริ่มจากวันปัจจุบัน", processedData);
     } else {
-      // กรณีมี time field ก็ใช้ข้อมูลเดิม
-      processedData = data;
+      processedData = data.map(item => {
+        if (typeof item.time === 'number') {
+          const d = new Date(item.time);
+          item.time = d.toISOString().split('T')[0];
+        }
+        return item;
+      });
     }
 
     // สร้างกราฟ

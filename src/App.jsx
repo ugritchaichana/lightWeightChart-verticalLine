@@ -17,6 +17,12 @@ const dataWithoutTime = [
   { value: 40 }
 ];
 
+const timestampData = [
+  { time: 1704067200000, value: 12 }, // 2024-01-01
+  { time: 1704153600000, value: 18 }, // 2024-01-02
+  { time: 1704240000000, value: 15 }, // 2024-01-03
+];
+
 function App() {
 
   return (
@@ -236,6 +242,17 @@ function App() {
               }
             }
           ]}
+        />
+      </div>
+
+      <div className="chart-container">
+        <h2>ทดสอบ VerticalLineChart กับ Timestamp</h2>
+        <VerticalLineChart 
+          data={timestampData}
+          height={300}
+          verticalLineTime={1704153600}
+          labelText="ด้วย Timestamp"
+          verticalLineColor="red"
         />
       </div>
     </>
